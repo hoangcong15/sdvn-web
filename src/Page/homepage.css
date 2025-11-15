@@ -1,0 +1,16 @@
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background-color: #ffffff;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logo {
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 70;
+    color: #111827;
+    border-bottom: 1px solid #e5e7eb;
+  }
