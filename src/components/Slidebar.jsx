@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 import logo from "../img/images.png";
+import "./Slidebar.css";
 
 const API_BASE = "http://10.73.132.104:3000"
 
@@ -61,22 +62,22 @@ export default function Slidebar(){
     const isActive = (path) => localtion.pathname === path;
 
     return(
-        <div className="slidebar-wrapper" onMouseDown={handleLineMouseLeaveSliderbarArea}>
-            <aside className="slidebar">
+        <div className="sidebar-wrapper" onMouseDown={handleLineMouseLeaveSliderbarArea}>
+            <aside className="sidebar">
                 {/* Logo + text */}
-                <div className="slidebar-header">
-                    <img src={logo} alt="logo SDVN" className="slidebar-logo"/>
-                    <span className="slidebar-title">IoT Xưởng Cao Áp</span>
+                <div className="sidebar-header">
+                    <img src={logo} alt="logo SDVN" className="sidebar-logo"/>
+                    <span className="sidebar-title">IoT Xưởng Cao Áp</span>
                 </div>
 
                 {/* Nut Home */}
-                <nav className="slidebar-nav">
+                <nav className="sidebar-nav">
                     <Link to="/" className={`nav-button ${isActive("/") ? "nav-button-active" : ""}`}>
                     🏠 Home
                     </Link>
 
                     {/* Các Line sản xuất */}
-                    <div className="slidebar-lines-label">Line sản xuất</div>
+                    <div className="sidebar-lines-label">Line sản xuất</div>
                     {lines.map((line)=>(
                         <button key={line.id} className="line-button" onMouseEnter={() => handleLineMouseEnter(line)}></button>
                     ))}
