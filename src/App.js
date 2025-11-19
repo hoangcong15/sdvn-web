@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./Page/homepage";
+import MachinePage from "./Page/MachinePage";
 import Slidebar from "./components/Slidebar";
 import './App.css';
 
@@ -10,7 +11,7 @@ function App() {
       <Slidebar/>
       <main className="app-main">
         <Routes>
-          <Route path="/" element={<HomePage/>}/>
+          <Route path="/home" element={<HomePage/>}/>
         </Routes>
       </main>
     </div>

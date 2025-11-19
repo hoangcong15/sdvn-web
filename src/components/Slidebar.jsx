@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../img/images.png";
 import "./Slidebar.css";
 
@@ -7,7 +7,7 @@ const API_BASE = "http://10.73.132.104:3000"
 
 export default function Slidebar(){
     const localtion = useLocation();     //
-
+    const navigate = useNavigate();
     const [lines, setLines] = useState([]);     //lưu trạng thái sau khi truyền biến vào
     const [hoveredLine, setHoveredLine] = useState(null);
     const [machines, setMachines] = useState([]);
@@ -79,7 +79,7 @@ export default function Slidebar(){
                     {/* Các Line sản xuất */}
                     <div className="sidebar-lines-label">Line sản xuất</div>
                     {lines.map((line)=>(
-                        <button key={line.id} className="line-button" onMouseEnter={() => handleLineMouseEnter(line)}></button>
+                        <button key={line.id} className="line-button" onMouseEnter={() => handleLineMouseEnter(line)}>{line.name}</button>
                     ))}
                 </nav>
             </aside>
@@ -87,7 +87,7 @@ export default function Slidebar(){
             {hoveredLine &&(
                 <div className="machines-popup">
                     <div className="machines-popup-header">
-                        <h3>Line {hoveredLine.name}</h3>
+                        <h3>{hoveredLine.name}</h3>
                     </div>
                     <div className="machines-popup-body">
                         {loadingMachine ?(
@@ -96,13 +96,23 @@ export default function Slidebar(){
                         ): machines.length === 0 ?(
                             <p>No Machines</p>
                         ):(
-                            <ul>
-                                {machines.map((m) =>(
-                                    <li key={m.id}>
-                                        {m.machine_name || m.name || `Máy ${m.id}`}
-                                    </li>
-                                ))}
-                            </ul>
+                            // <ul>
+                            //     {machines.map((m) =>(
+                            //         <li key={m.id}>
+                            //             {m.machine_name || m.name || `Máy ${m.id}`}
+                            //         </li>
+                            //     ))}
+                            // </ul>
+                            <div className="machine-list">
+                               {machines.map((m) => (
+                                   <button
+                                       key={m.id}
+                                       className="machine-button"
+                                       onClick={() => navigate(`/machine/${m.id}`)}>
+                                       {m.machine_name || m.name || `Máy ${m.id}`}
+                                   </button>
+                               ))}
+                            </div>
                         )}
                     </div>
                 </div>
