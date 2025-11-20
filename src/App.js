@@ -11,7 +11,10 @@ function App() {
       <Slidebar/>
       <main className="app-main">
         <Routes>
+        <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<HomePage/>}/>
+          {/* trang máy, nhận param :machineId */}
+          <Route path="/machine/:machineId" element={<MachinePage />} />
         </Routes>
       </main>
     </div>

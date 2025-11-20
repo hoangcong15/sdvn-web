@@ -17,12 +17,12 @@
   /* ===== SIDEBAR + POPUP ===== */
   .sidebar-wrapper {
     position: relative;
-    background-color: #111827;
+    background-color: #0046A9;
   }
   
   .sidebar {
     width: 200px;
-    background-color: #111827;
+    background-color: #0046A9;
     color: #e5e7eb;
     padding: 16px 12px;
     display: flex;
@@ -83,8 +83,8 @@
   }
   
   .nav-button-active {
-    background: #2563eb;
-    border-color: #3b82f6;
+    background: #AF5000;
+    border-color: #AF5000;
   }
   
   .sidebar-lines-label {
@@ -145,7 +145,7 @@
     margin: 0;
     font-size: 15px;
     font-weight: 700;
-    color: #111827;
+    color: white;
   }
   
   .machines-popup-body {

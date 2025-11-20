@@ -62,7 +62,7 @@ export default function Slidebar(){
     const isActive = (path) => localtion.pathname === path;
 
     return(
-        <div className="sidebar-wrapper" onMouseDown={handleLineMouseLeaveSliderbarArea}>
+        <div className="sidebar-wrapper" onMouseLeave={handleLineMouseLeaveSliderbarArea}>
             <aside className="sidebar">
                 {/* Logo + text */}
                 <div className="sidebar-header">
